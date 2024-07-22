@@ -24,7 +24,7 @@ def recommend(movie):
     for i in distances[1:6]:
         # fetch the movie poster
         movie_id = movies.iloc[i[0]].movie_id
-        
+
         recommended_movie_posters.append(fetch_poster(movie_id))
         recommended_movie_names.append(movies.iloc[i[0]].title)
 
@@ -61,3 +61,25 @@ if st.button('Show Recommendation'):
     with col5:
         st.text(recommended_movie_names[4])
         st.image(recommended_movie_posters[4])
+
+#css styling
+st.markdown("""
+    <style>
+    .movie-title {
+        font-size: 20px;
+        font-weight: bold;
+        color: #FFA500;  
+    }
+    .movie-poster {
+        border: 2px solid #ffffff;
+        border-radius: 10px;
+    }
+    .stButton>button {
+        background-color: #541333;
+        color: white;
+        border-radius: 10px;
+        padding: 10px 24px;
+        font-size: 16px;
+    }
+    </style>
+    """, unsafe_allow_html=True)
